@@ -1,4 +1,5 @@
 import mongoose from 'mongoose';
+import Promotional from '../promotional/promotional.model';
 
 const orderSchema = new mongoose.Schema({
   plate: {
@@ -11,8 +12,8 @@ const orderSchema = new mongoose.Schema({
       required: [true, 'Plate price is required.']
     }
   },
-  discount: {
-    type: Number,
+  code: {
+    type: Promotional.schema,
     required: false
   },
   destiny: {
