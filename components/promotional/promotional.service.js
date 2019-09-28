@@ -5,11 +5,16 @@ const codeRegex = /^[0-9]{4,4}$/;
 
 const createPromotionalCode = async (req, res) => {
   const { code, isPercent, discount, expirationDate, isActive} = req.body;
+  if (!code || !discount || !expirationDate) return res.status(400).send({ message: 'Invalid fields.' });
+
   const isValid = await helper.validateDate(expirationDate);
 
-  if (!code.match(codeRegex)) return res.status(400).send({ message: 'Invalid promotion code.' });
+  if (!code || !code.match(codeRegex)) return res.status(400).send({ message: 'Invalid promotion code.' });
   if (!isValid) return res.status(400).send({ message: 'Invalid expiration date.' });
-  if (isPercent && parseInt(discount, 10) > 100) return res.status(400).send({ message: 'Discount is greather than value.' });
+  if (isPercent) {
+    if (parseInt(discount, 10) > 100) return res.status(400).send({ message: 'Discount is greather than value.' });
+    else if (typeof isPercent !== 'boolean') return res.status(400).send({ message: 'isPercent needs be boolean.' });
+  }
 
   Promotional.findOne({ code }, (err, data) => {
     if (err) return res.status(400).send({ message: 'Error to find promotional code.' });
@@ -25,12 +30,14 @@ const createPromotionalCode = async (req, res) => {
 const validatePromotionalCode = async (req, res) => {
   const { code } = req.body;
 
-  if (!code.match(codeRegex)) return res.status(400).send({ message: 'Invalid promotion code.' });
+  if (!code || !code.match(codeRegex)) return res.status(400).send({ message: 'Invalid promotion code.' });
+  console.log('yo')
 
   Promotional.findOne({ code }, (err, data) => {
     if (err) return res.status(400).send({ message: 'Error to find promotional code.' });
     else if (data && !data.isActive) return res.status(400).send({ message: 'Promotional code expired.' });
   });
+  return res.json('Yo')
 }
 
 export default {
