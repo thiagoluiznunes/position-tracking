@@ -29,15 +29,18 @@ const createPromotionalCode = async (req, res) => {
 
 const validatePromotionalCode = async (req, res) => {
   const { code } = req.body;
-
   if (!code || !code.match(codeRegex)) return res.status(400).send({ message: 'Invalid promotion code.' });
-  console.log('yo')
 
-  Promotional.findOne({ code }, (err, data) => {
-    if (err) return res.status(400).send({ message: 'Error to find promotional code.' });
+  Promotional.findOne({ code }, async (err, data) => {
+    if (err || data == null) return res.status(400).send({ message: 'Error to find promotional code.' });
     else if (data && !data.isActive) return res.status(400).send({ message: 'Promotional code expired.' });
+    const isValid = await helper.validateDate(data.expirationDate);
+    if (!isValid) {
+      data.isActive = false;
+      await data.save();
+      return res.status(400).send({ message: 'Promotional code expired.' });
+    } else return res.status(200).send({ message: 'Promotional code available.' });
   });
-  return res.json('Yo')
 }
 
 export default {
