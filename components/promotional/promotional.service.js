@@ -1,8 +1,9 @@
 import Promotional from './promotional.model';
 import helper from '../helper';
 
-const createPromotion = async (req, res) => {
-  const codeRegex = /^[0-9]{4,4}$/;
+const codeRegex = /^[0-9]{4,4}$/;
+
+const createPromotionalCode = async (req, res) => {
   const { code, isPercent, discount, expirationDate, isActive} = req.body;
   const isValid = await helper.validateDate(expirationDate);
 
@@ -22,9 +23,17 @@ const createPromotion = async (req, res) => {
 }
 
 const validatePromotionalCode = async (req, res) => {
+  const { code } = req.body;
 
+  if (!code.match(codeRegex)) return res.status(400).send({ message: 'Invalid promotion code.' });
+
+  Promotional.findOne({ code }, (err, data) => {
+    if (err) return res.status(400).send({ message: 'Error to find promotional code.' });
+    else if (data && !data.isActive) return res.status(400).send({ message: 'Promotional code expired.' });
+  });
 }
 
 export default {
-  createPromotion
+  createPromotionalCode,
+  validatePromotionalCode,
 }
