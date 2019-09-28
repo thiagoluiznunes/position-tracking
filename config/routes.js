@@ -1,7 +1,7 @@
-// import auth from '../components/auth/auth.routes';
+import promotional from '../components/promotional/promotional.routes';
 
 const init = (app) => {
-  // app.use('/api/v1/auth', auth);
+  app.use('/api/v1/promotional-code', promotional);
 }
 
 export default { init };
