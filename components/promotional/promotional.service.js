@@ -2,7 +2,7 @@ import Promotional from './promotional.model';
 import helper from '../helper';
 
 const createPromotion = async (req, res) => {
-  const codeRegex = /^.{6,}[A-Z0-9-$%]+/; // At least 6 characters in uppercase letters
+  const codeRegex = /^[0-9]{4,4}$/;
   const { code, isPercent, discount, expirationDate, isActive} = req.body;
   const isValid = await helper.validateDate(expirationDate);
 
