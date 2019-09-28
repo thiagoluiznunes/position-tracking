@@ -4,7 +4,7 @@ import app from '../app';
 import debug from 'debug';
 import http from 'http';
 
-debug('mock-json-server:server');
+debug('bookish-sniffle:server');
 
 const port = normalizePort(process.env.PORT || process.argv[2] || '3000');
 

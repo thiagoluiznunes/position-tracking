@@ -17,7 +17,7 @@ const createPromotionalCode = async (req, res) => {
   }
 
   Promotional.findOne({ code }, (err, data) => {
-    if (err) return res.status(400).send({ message: 'Error to find promotional code.' });
+    if (err || data == null) return res.status(400).send({ message: 'Error to find promotional code.' });
     else if (data && data.isActive) return res.status(400).send({ message: 'Promotional code already activated.' });
     const newCode = new Promotional({ code, isPercent, discount, expirationDate, isActive });
     newCode.save((err) => {
