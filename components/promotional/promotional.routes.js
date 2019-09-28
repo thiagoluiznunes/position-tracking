@@ -1,15 +1,15 @@
 import express from 'express';
 import helper from '../helper';
-import service from './promotional.service';
+import ctrl from './promotional.controller';
 
 const router = new express.Router();
 
 router.post('/create', helper.asyncMiddleware(async (req, res) => {
-  await service.createPromotionalCode(req, res);
+  await ctrl.createPromotionalCode(req, res);
 }));
 
 router.post('/validate', helper.asyncMiddleware(async (req, res) => {
-  await service.validatePromotionalCode(req, res);
+  await ctrl.validatePromotionalCode(req, res);
 }));
 
 export default router;
