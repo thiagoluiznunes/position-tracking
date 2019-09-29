@@ -3,7 +3,6 @@ import BankAccount from './back-account.model';
 
 const addAccount = async (req, res) => {
   const { driver_name, bank_account } = req.body;
-
   if (!driver_name || !bank_account) return res.status(400).send({ message: 'Invalid fields.' });
 
   Driver.findOne({ name: driver_name }, (err, driver) => {
