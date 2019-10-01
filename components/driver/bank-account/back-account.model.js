@@ -7,12 +7,12 @@ const bankAccountSchema = new mongoose.Schema({
   },
   routing_number: {
     type: String,
-    required: [true,'Routing number it is required.'],
+    required: [true, 'Routing number it is required.'],
     validate: [/^[0-9]{9,9}$/, 'Invalid routing number, it must have 9 digits.']
   },
   account_number: {
     type: String,
-    required: [true,'Account number it is required.'],
+    required: [true, 'Account number it is required.'],
     validate: [/^[0-9]{7,14}$/, 'Invalid account number, it must have between 7-14 digits.']
   },
   tax_information: {
