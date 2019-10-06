@@ -43,7 +43,13 @@ const validatePromotionalCode = async (req, res) => {
   });
 }
 
+const getModelTypes = async (req, res) => {
+  const promotionalTypes = await helper.getModelTypes(Promotional);
+  res.status(200).json(promotionalTypes);
+}
+
 export default {
   createPromotionalCode,
   validatePromotionalCode,
+  getModelTypes,
 }

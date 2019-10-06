@@ -8,5 +8,8 @@ router.post('/create', helper.asyncMiddleware(async (req, res) => {
   await ctrl.createOrder(req, res);
 }));
 
+router.get('/get-model-types', helper.asyncMiddleware(async (req, res) => {
+  await ctrl.getModelTypes(req, res);
+}));
 
 export default router;

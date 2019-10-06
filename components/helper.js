@@ -40,8 +40,23 @@ const validateDate = async (date) => {
   return isValid;
 }
 
+const getModelTypes = async (model) => {
+  const modelTypes = {};
+  model.schema.eachPath(async (pathname, schematype) => {
+    if (schematype.instance === 'Embedded') {
+      const type = await getModelTypes(schematype);
+      modelTypes[pathname] = type;
+    }
+    else if (pathname !== '_id' && pathname !== '__v') {
+      modelTypes[pathname] = schematype.instance;
+    }
+  });
+  return modelTypes;
+}
+
 export default {
   asyncMiddleware,
   sendErrorsFromDB,
   validateDate,
+  getModelTypes,
 };

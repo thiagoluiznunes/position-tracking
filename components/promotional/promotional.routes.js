@@ -12,4 +12,8 @@ router.post('/validate', helper.asyncMiddleware(async (req, res) => {
   await ctrl.validatePromotionalCode(req, res);
 }));
 
+router.get('/get-model-types', helper.asyncMiddleware(async (req, res) => {
+  await ctrl.getModelTypes(req, res);
+}));
+
 export default router;

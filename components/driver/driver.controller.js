@@ -1,4 +1,5 @@
 import Driver from './driver.model';
+import helper from '../helper';
 
 const registerDriver = async (req, res) => {
   const { name, vehicle } = req.body;
@@ -43,8 +44,14 @@ const setLocation = async (req, res) => {
   });
 }
 
+const getModelTypes = async (req, res) => {
+  const driverTypes = await helper.getModelTypes(Driver);
+  res.status(200).json(driverTypes);
+}
+
 export default {
   registerDriver,
   getLocation,
   setLocation,
+  getModelTypes,
 }

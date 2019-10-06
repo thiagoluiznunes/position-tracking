@@ -1,5 +1,6 @@
 import Order from './order.model';
 import Promotional from '../promotional/promotional.model';
+import helper from '../helper';
 
 const codeRegex = /^[0-9]{4,4}$/;
 
@@ -31,13 +32,16 @@ const createOrder = async (req, res) => {
       });
     });
   }
+}
 
-
-
+const getModelTypes = async (req, res) => {
+  const orderTypes = await helper.getModelTypes(Order);
+  res.status(200).json(orderTypes);
 }
 
 export default {
   createOrder,
+  getModelTypes,
 }
 
 
