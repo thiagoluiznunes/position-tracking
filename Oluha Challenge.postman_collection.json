@@ -1,0 +1,436 @@
+{
+	"info": {
+		"_postman_id": "333eeb3d-a802-4522-8f43-a62c293f5f63",
+		"name": "Oluha Challenge",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "PROMOTION",
+			"item": [
+				{
+					"name": "CREATE PROMOTION",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/x-www-form-urlencoded",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "code",
+									"value": "1122",
+									"type": "text"
+								},
+								{
+									"key": "discount",
+									"value": "15",
+									"type": "text"
+								},
+								{
+									"key": "isPercent",
+									"value": "asdasd",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "expirationDate",
+									"value": "30/08/2019",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/v1/promotional-code/create",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"v1",
+								"promotional-code",
+								"create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "VALIDATE PROMOTION CODE",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/x-www-form-urlencoded",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "code",
+									"value": "1123",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/v1/promotional-code/validate",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"v1",
+								"promotional-code",
+								"validate"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET MODEL TYPES",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/x-www-form-urlencoded"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "id",
+									"value": "5d8ffe13c8cc7d474469e5bc",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/v1/promotional-code/get-model-types",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"v1",
+								"promotional-code",
+								"get-model-types"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "ORDER",
+			"item": [
+				{
+					"name": "CREATE ORDER",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"plate\": {\n    \"name\": \"Habburguer\",\n    \"price\": \"$25.50\"\n  },\n  \"code\": \"1122\",\n  \"destiny\": \"Rua Paulo Roberto de Souza\",\n  \"chief\": {\n    \"name\": \"Thiago Luiz\",\n    \"location\": \"Rua Paulo Roberto de Souza\"\n  },\n  \"driver\": {\n    \"name\": \"Thiago Luiz\",\n    \"vehicle\": \"Honda Civic\"\n  }\n}"
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/v1/order/create",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"v1",
+								"order",
+								"create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET MODEL TYPES",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/v1/order/get-model-types",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"v1",
+								"order",
+								"get-model-types"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "DRIVER",
+			"item": [
+				{
+					"name": "REGISTER DRIVER",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/x-www-form-urlencoded",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "name",
+									"value": "Milton Nunes",
+									"type": "text"
+								},
+								{
+									"key": "vehicle",
+									"value": "Chevrolet Prisma",
+									"type": "text"
+								},
+								{
+									"key": "isAvailable",
+									"value": "false",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/v1/driver/register",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"v1",
+								"driver",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ADD DRIVER ACCOUNT",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"driver_name\": \"Thiago Luiz\",\n\t\"bank_account\": {\n\t\t\"name\": \"THIAGO FATHER\",\n\t\t\"routing_number\": \"123456789\",\n\t\t\"account_number\": \"1234567\",\n\t\t\"tax_information\": \"Tax3\"\n\t}\n}"
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/v1/driver/bank/add-account",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"v1",
+								"driver",
+								"bank",
+								"add-account"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET DRIVER POSITION",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/x-www-form-urlencoded",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "id",
+									"value": "5d8ffe13c8cc7d474469e5bc",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/v1/driver/get-location",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"v1",
+								"driver",
+								"get-location"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET MODEL TYPES",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/x-www-form-urlencoded",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "id",
+									"value": "5d8ffe13c8cc7d474469e5bc",
+									"type": "text",
+									"disabled": true
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/v1/driver/get-model-types",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"v1",
+								"driver",
+								"get-model-types"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "SET DRIVER LOCATION",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/x-www-form-urlencoded",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "id",
+									"value": "5d92a4a1e1df512522be3a22",
+									"type": "text"
+								},
+								{
+									"key": "lat",
+									"value": "100",
+									"type": "text"
+								},
+								{
+									"key": "lng",
+									"value": "50",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/v1/driver/set-location",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"v1",
+								"driver",
+								"set-location"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
