@@ -45,10 +45,20 @@ const getModelTypes = async (model) => {
   model.schema.eachPath(async (pathname, schematype) => {
     if (schematype.instance === 'Embedded') {
       const type = await getModelTypes(schematype);
-      modelTypes[pathname] = type;
+      const attribute = {
+        type: type,
+        required: schematype.isRequired,
+        enum: schematype.enumValues
+      }
+      modelTypes[pathname] = attribute;
     }
     else if (pathname !== '_id' && pathname !== '__v') {
-      modelTypes[pathname] = schematype.instance;
+      const attribute = {
+        type: schematype.instance,
+        required: schematype.isRequired,
+        enum: schematype.enumValues
+      }
+      modelTypes[pathname] = attribute;
     }
   });
   return modelTypes;

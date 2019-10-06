@@ -184,13 +184,20 @@
 				},
 				{
 					"name": "GET MODEL TYPES",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
 					"request": {
 						"method": "GET",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": ""
-						},
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/x-www-form-urlencoded",
+								"type": "text"
+							}
+						],
+						"body": {},
 						"url": {
 							"raw": "http://localhost:3000/api/v1/order/get-model-types",
 							"protocol": "http",
@@ -425,6 +432,37 @@
 								"v1",
 								"driver",
 								"set-location"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "TEST",
+			"item": [
+				{
+					"name": "GET MODEL TYPES",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/v1/test/get-model-types",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"v1",
+								"test",
+								"get-model-types"
 							]
 						}
 					},
