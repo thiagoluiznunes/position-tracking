@@ -14,7 +14,7 @@ Toolkit: Node.js | Express.js | Mocha | Chai | Istanbul
 
 ### Project Installation ###
 1 - Install packages:
-```
+```console
 user:~/bookish-sniffle$ npm install
 ```
 2 - Create MongoDB User:
@@ -34,11 +34,11 @@ user:~/bookish-sniffle$ npm install
 user:~/bookish-sniffle$ sudo service mongod start
 ```
 4 - Start api:
-```
+```console
 user:~/bookish-sniffle$ npm run dev
 ```
 **Option: You can set the port after npm command:**
-```
+```console
 user:~/bookish-sniffle$ npm run dev 8080
 ```
 
