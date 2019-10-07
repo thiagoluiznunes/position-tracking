@@ -469,6 +469,75 @@
 					"response": []
 				}
 			]
+		},
+		{
+			"name": "CHIEF",
+			"item": [
+				{
+					"name": "GET MODEL TYPES",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/x-www-form-urlencoded",
+								"type": "text"
+							}
+						],
+						"body": {},
+						"url": {
+							"raw": "http://localhost:3000/api/v1/chief/get-model-types",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"v1",
+								"chief",
+								"get-model-types"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "PLATE",
+			"item": [
+				{
+					"name": "GET MODEL TYPES",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/v1/plate/get-model-types",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"v1",
+								"plate",
+								"get-model-types"
+							]
+						}
+					},
+					"response": []
+				}
+			]
 		}
 	]
 }
