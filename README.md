@@ -458,11 +458,9 @@ POST /api/v1/order/create
 * RESPONSE
 ```json
 {
-  {
-    "message": "Order has been created.",
-    "finalPrice": 10.5
-  }
-}
+  "message": "Order has been created.",
+  "finalPrice": 10.5
+}   
 ```
 * REQUEST
 ```
