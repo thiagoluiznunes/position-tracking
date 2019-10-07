@@ -246,7 +246,7 @@ POST /api/v1/driver/bank/add-account
 		"tax_information": {
       "type": "String",
       "required": true,
-      "enum": ['Tax0', 'Tax1', 'Tax2', 'Tax3']
+      "enum": ["Tax0", "Tax1", "Tax2", "Tax3"]
     }
 	}
 }
