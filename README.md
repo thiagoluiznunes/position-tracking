@@ -15,7 +15,7 @@ Toolkit: Node.js | Express.js | Mocha | Chai | Istanbul
 ### Project Installation ###
 1 - Install packages:
 ```console
-user:~/bookish-sniffle$ npm install
+user:~/position-tracking$ npm install
 ```
 2 - Create MongoDB User:
 
@@ -23,23 +23,23 @@ user:~/bookish-sniffle$ npm install
   use admin
   db.createUser(
     {
-      user: "bookish-sniffle-user",
-      pwd: "bookish-sniffle-password", 
+      user: "user",
+      pwd: "user-password", 
       roles: [ { role: "userAdminAnyDatabase", db: "bookish-sniffle-db" }, "readWriteAnyDatabase" ]
     }
   )
 ```
 3 - Start MongoDB:
 ```console
-user:~/bookish-sniffle$ sudo service mongod start
+user:~/position-tracking$ sudo service mongod start
 ```
 4 - Start api:
 ```console
-user:~/bookish-sniffle$ npm run dev
+user:~/position-tracking$ npm run dev
 ```
 **Option: You can set the port after npm command:**
 ```console
-user:~/bookish-sniffle$ npm run dev 8080
+user:~/position-tracking$ npm run dev 8080
 ```
 
 ### Promotion Routes ###
